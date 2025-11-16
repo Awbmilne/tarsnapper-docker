@@ -6,7 +6,13 @@ This is a very basic docker image that utilizes **_[🔗Tarsnapper](https://gith
 ## Example Usage
 
 ```bash
-docker run awbmilne/
+docker run -d \
+    -n tarnsapper-backup
+    -v /folder/to/back/up:/data \
+    -v /folder/for/backups:/backups \
+    -e TARSNAPPER_DELTAS="7d 30d 365d" \
+    -e TARSNAPPER_CRON="0 0 * * *" \ 
+    awbmilne/tarnsapper-docker:latest
 ```
 
 ## Expected Volumes
