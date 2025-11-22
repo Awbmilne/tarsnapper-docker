@@ -7,7 +7,7 @@ if [ -z "$TARSNAPPER_DELTAS" ] || [ -z "$TARSNAPPER_CRON" ]; then
 fi
 
 # Create the /etc/cron.d/tarsnapper file with the specified schedule and command
-echo "$TARSNAPPER_CRON root tarsnapper --target $TARSNAPPER_OUTPUT_DIR/$TARSNAPPER_BACKUP_NAME --sources $TARSNAPPER_SOURCES --deltas $TARSNAPPER_DELTAS >> /tarsnapper.log 2>&1" > /tarsnapper-cron
+echo "$TARSNAPPER_CRON root tarsnapper --target $TARSNAPPER_OUTPUT_DIR/$TARSNAPPER_BACKUP_NAME --sources $TARSNAPPER_SOURCES --deltas $TARSNAPPER_DELTAS - make >> /tarsnapper.log 2>&1" > /tarsnapper-cron
 
 # Give execution rights on the cron job
 chmod 0644 /tarsnapper-cron
