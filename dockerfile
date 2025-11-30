@@ -6,7 +6,8 @@ RUN apk add --update --no-cache busybox-suid \
     && /opt/venv/bin/pip install --upgrade pip setuptools \
     && /opt/venv/bin/pip install tarsnapper
 ENV PATH="/opt/venv/bin:$PATH"
-RUN tarsnapper --help
+RUN tarsnap --version \
+    && tarsnapper --help
 
 # Configure tarsnapper parameters
 RUN mkdir /backups /data
